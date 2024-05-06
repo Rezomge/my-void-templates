@@ -1,0 +1,9 @@
+diff '--color=auto' -Naur bubblejail/data/bubblejail/profiles/steam.toml bubblejail-void/data/bubblejail/profiles/steam.toml
+--- bubblejail/data/bubblejail/profiles/steam.toml	2022-06-15 20:23:23.000000000 +0200
++++ bubblejail-void/data/bubblejail/profiles/steam.toml	2022-07-25 16:17:59.027699258 +0200
+@@ -23,5 +23,5 @@
+ [services.direct_rendering]
+ [services.joystick]
+ [services.root_share]
+-read_only_paths = ['/sys/devices/system/cpu']
++read_only_paths = ['/sys/devices/system/cpu', '/var/lib/dbus/machine-id']

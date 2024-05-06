@@ -1,0 +1,33 @@
+# Template file for 'herbe'
+pkgname=wayherb
+version=0.2
+revision=1
+#wrksrc=wayherb
+build_style=gnu-makefile
+makedepends="wayland-devel cairo-devel"
+short_desc="Herbe ported to wayland"
+maintainer="Matvei"
+license="MIT"
+homepage="https://github.com/Vixeliz/Wayherb"
+distfiles="${homepage}/archive/${version}.tar.gz"
+checksum=9efbbbfbf23049f46a8e1c96d5e499677347102112bdb292cd417f0c7166b3e5
+
+#do_fetch() {
+#  git clone --single-branch --branch master muevoid-overlap --depth=1 "https://github.com/Vixeliz/Wayherb" ${wrksrc}
+#}
+
+#do_build() {
+#	# Patch Makefile to locate <ft2build.h>
+#	vsed 's|-I/usr/include/freetype2|-I${XBPS_CROSS_BASE}/usr/include/freetype2|' \
+#		-i ${wrksrc}/Makefile
+#}
+
+post_install() {
+	vlicense LICENSE
+}
+
+#wayherb_package() {
+#    depends="${sourcepkg}>=${version}_${revision}"
+#    build_style=meta
+#    short_desc+=" (transitional dummy package)"
+#}

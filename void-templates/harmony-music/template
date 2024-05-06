@@ -1,0 +1,26 @@
+# Template file for 'picom-jonaburg'
+pkgname=harmony-music
+version=1.9.0
+revision=1
+wrksrc=harmony-music
+build_style=meson
+#configure_args="-Dwith_docs=true"
+hostmakedepends="gtk+3 libayatana-appindicator mpv"
+makedepends="mpv-devel mpv libayatana-appindicator-devel ninja gtk+3-devel"
+#depends="desktop-file-utils"
+short_desc="A cross platform App for streaming Music "
+maintainer="Lavatori"
+license="GPL-3.0-or-later"
+homepage="https://github.com/anandnet/Harmony-Music"
+#distfiles="https://github.com/ibhagwan/picom/archive/next.tar.gz"
+#checksum=dfe072ca800360b6125c59dd5b6f27840f540cf7ee63add7a913b292e26ef292
+
+do_fetch() {
+  git clone --single-branch --branch main --depth=1 "https://github.com/anandnet/Harmony-Music" ${wrksrc}
+}
+
+harmony-music_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	build_style=meta
+	short_desc+=" (transitional dummy package)"
+}

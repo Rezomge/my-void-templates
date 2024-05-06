@@ -1,0 +1,15 @@
+# Template file for 'bubblejail'
+pkgname=bubblejail
+#version=0.6.2
+version=0.8.1
+revision=2
+build_style=meson
+depends="bubblewrap python3 python3-xdg python3-tomli python3-tomli-w xdg-dbus-proxy python3-PyQt5 libseccomp libnotify"
+makedepends="m4 python3-Sphinx"
+short_desc="Bubblewrap based sandboxing utility"
+maintainer="Matthias Nyman"
+license="GPL-3.0-or-later"
+homepage="https://github.com/igo95862/bubblejail"
+distfiles="https://github.com/igo95862/bubblejail/archive/refs/tags/${version}.tar.gz"
+#checksum=72e6fb90090f41087423c7c46366aaa796a29d1e087276e3381402da2cedfa0e
+checksum=40d7a85fa429114e227653c896f7d2d68b1bb25c71c374207d1046ffa9ca4027

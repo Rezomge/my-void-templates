@@ -1,0 +1,31 @@
+# Template file for 'picom-zaney'
+pkgname=picom-zaney
+version=1
+revision=5
+wrksrc=picom-zaney
+build_style=meson
+configure_args="-Dwith_docs=true"
+hostmakedepends="git pkg-config asciidoc"
+makedepends="MesaLib-devel dbus-devel libconfig-devel libev-devel pcre-devel
+ pixman-devel xcb-util-image-devel xcb-util-renderutil-devel
+ libxdg-basedir-devel uthash libevent-devel"
+depends="desktop-file-utils"
+short_desc="Lightweight compositor for X11 (previously a compton fork)"
+maintainer="Frank Steinborn <steinex@nognu.de>"
+license="MIT, MPL-2.0"
+homepage="https://gitlab.com/Zaney/picom/"
+
+do_fetch() {
+  git clone --single-branch --branch main --depth=1 "https://gitlab.com/Zaney/picom" ${wrksrc}
+}
+
+post_install() {
+	vlicense LICENSES/MIT
+	vsconf picom.sample.conf
+}
+
+picom-zaney_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	build_style=meta
+	short_desc+=" (transitional dummy package)"
+}
